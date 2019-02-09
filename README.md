@@ -6,21 +6,15 @@ SQL utilities, frequently used queries/functions
 ## Find Stored Procedure Using Specific text
 ```
 SELECT
-
     OBJECT_NAME(id),
-
     text
-
 FROM
-    
     sys.syscomments 
-    
 WHERE
-
     OBJECTPROPERTY(id, 'IsProcedure') = 1 AND
 
     text Like '%SearchText%'
-    ```
+```
 
 ## Check Exists before drop table
 
