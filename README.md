@@ -31,17 +31,18 @@ IF OBJECT_ID('tempdb..#TableName') IS NOT NULL DROP TABLE #Tablename
 ## While + Cursor
 
 ```
-DECLARE @named_variable AS VARCHAR(100)
+DECLARE @named_variable1 AS VARCHAR(100)
+DECLARE @named_variable2 AS VARCHAR(100)
 
 DECLARE db_cursor FOR 
-    SELECT column_name FROM table_name
+    SELECT column_name1, column_name2 FROM table_name
 OPEN db_cursor
-FETCH NEXT FROM db_cursor INTO @named_variable
+FETCH NEXT FROM db_cursor INTO @named_variable1, @named_variable2
 
 WHILE @@FETCH_STATUS = 0
     BEGIN
-        PRINT @named_variable
-        FETCH NEXT FROM db_cursor INTO @named_variable
+        IF(@named_variable1 = 'x') PRINT @named_variable
+        FETCH NEXT FROM db_cursor INTO @named_variable1, @named_variable2
     END
 CLOSE db_cursor
 DEALLCOATE db_cursor
@@ -92,4 +93,9 @@ UPDATE t
 SET t.col1 = 'this'
 FROM #table t
 WHERE t.col2 = 'that'
+```
+
+## Rank
+```
+RANK() OVER(PARTITION BY MONTH(date_column) ORDER BY score_column DESC)
 ```
