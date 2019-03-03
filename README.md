@@ -99,3 +99,30 @@ WHERE t.col2 = 'that'
 ```
 RANK() OVER(PARTITION BY MONTH(date_column) ORDER BY score_column DESC)
 ```
+
+## Get info about table (TSQL)
+```
+EXEC sp_help 'dbase.dbo.table_name'
+
+SELECT * FROM sys.sql_modules
+
+SELECT * FROM sys.objects
+WHERE OBJECTPROPERY(OBJECT_ID,'IsProcedure')
+```
+
+## Return Database name 
+```
+DB_NAME()
+```
+
+## Execute SQL for each database
+```
+EXECUTE sp_MSforeachdb
+
+'USE ?
+SELECT s.object_id,
+     OBJECT_NAME(s.object_id),
+     DB_NAME()
+FROM sys.sql_modules s
+WHERE s.definition LIKE '%Some Text%'
+```
