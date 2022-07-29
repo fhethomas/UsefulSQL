@@ -141,4 +141,7 @@ JOIN (SELECT
     FROM creditTbl 
     GROUP BY full_name) t2 
 ON STRPOS(t2.full_name,upper(t1.first_name)) > 0 AND STRPOS(t2.full_name,upper(t1.last_name)) > 0
+
+-- Can also do case insensitive Regex mapping using ~* in postgreSQL
+
 ```
