@@ -126,3 +126,19 @@ SELECT s.object_id,
 FROM sys.sql_modules s
 WHERE s.definition LIKE '%Some Text%'
 ```
+
+## STRPOS() (PostgreSQL)
+Find the matching element of a substring, so you can find where first name matches the substring of a full name and same for last name.
+[Full explanation](https://www.w3resource.com/PostgreSQL/strpos-function.php)
+```
+SELECT  t1.first_name, 
+        t1.last_name, 
+        t2.credit_limit
+FROM customers t1
+JOIN (SELECT 
+        UPPER(full_name) as full_name, 
+        MAX(credit_limit) credit_limit 
+    FROM creditTbl 
+    GROUP BY full_name) t2 
+ON STRPOS(t2.full_name,upper(t1.first_name)) > 0 AND STRPOS(t2.full_name,upper(t1.last_name)) > 0
+```
