@@ -95,6 +95,19 @@ FROM #table t
 WHERE t.col2 = 'that'
 ```
 
+## Add column
+
+```
+ALTER TABLE table_name
+ADD column_1 VARCHAR(50);
+```
+
+## Add Primary Key
+```
+ALTER TABLE table_name
+ADD PRIMARY KEY (column_1);
+```
+
 ## Rank
 ```
 RANK() OVER(PARTITION BY MONTH(date_column) ORDER BY score_column DESC)
