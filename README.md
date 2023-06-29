@@ -57,10 +57,12 @@ dbo.myFunc(@my_arg VARCHAR(7)) RETURNS DECIMAL
     END
 ```
 
-## Identify data type
+## Identify data type, Max Length
 
 ```
-SELECT COLUMN_NAME, DATA_TYPE
+SELECT COLUMN_NAME,
+    DATA_TYPE,
+    CHARACTER_MAXIMUM_LENGTH AS MAX_LENGTH
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'my_table'
     AND COLUMN_NAME = 'my_column'
