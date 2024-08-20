@@ -101,7 +101,8 @@ WHERE t.col2 = 'that'
 
 ```
 ALTER TABLE table_name
-ADD column_1 VARCHAR(50);
+ADD column_1 VARCHAR(50)
+DEFAULT 'default text' WITH VALUES;
 ```
 
 ## Add Primary Key
