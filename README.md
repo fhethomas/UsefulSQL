@@ -110,6 +110,19 @@ DEFAULT 'default text' WITH VALUES;
 ALTER TABLE table_name
 ADD PRIMARY KEY (column_1);
 ```
+## Create Quick Lookup table
+```
+SELECT * FROM
+	(
+		VALUES
+			('A', 5),
+			('B', 4),
+			('C', 3),
+			('D', 2),
+			('E', 1)
+	)
+		AS lkup(Grade, Score)
+```
 
 ## Rank
 ```
