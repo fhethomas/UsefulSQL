@@ -19,7 +19,9 @@ WHERE
 ## Check Exists before drop table
 
 ```
-IF OBJECT_ID('TableName') IS NOT NULL DROP TABLE Tablename
+DROP TABLE IF EXISTS TableName
+
+IF OBJECT_ID('TableName') IS NOT NULL DROP TABLE TableName
 ```
 
 -- or if temp
