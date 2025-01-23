@@ -16,6 +16,16 @@ WHERE
     text Like '%SearchText%'
 ```
 
+## Alter string length
+```
+ALTER TABLE YourTable ALTER COLUMN YourColumn VARCHAR (500) NOT NULL;
+```
+## Convert Using Cast
+```
+CAST('2025-01-23' AS datetime)
+CAST(3.14 AS varchar)
+```
+
 ## Check Exists before drop table
 
 ```
