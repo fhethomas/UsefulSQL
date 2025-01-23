@@ -26,6 +26,16 @@ CAST('2025-01-23' AS datetime)
 CAST(3.14 AS varchar)
 ```
 
+## Create Stored Procedure
+```
+CREATE PROCEDURE DatabaseName.schemaName.procedureName AS
+	DROP TABLE IF EXISTS DatabaseName.schemaName.tableName
+
+  	SELECT *
+   	INTO DatabaseName.schemaName.tableName
+        FROM DatabaseName.schemaName.sourceData
+```
+
 ## Check Exists before drop table
 
 ```
