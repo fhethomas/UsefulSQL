@@ -28,7 +28,8 @@ CAST(3.14 AS varchar)
 
 ## Create Stored Procedure
 ```
-CREATE PROCEDURE DatabaseName.schemaName.procedureName AS
+USE DatabaseName
+CREATE PROCEDURE schemaName.procedureName AS
 	DROP TABLE IF EXISTS DatabaseName.schemaName.tableName
 
   	SELECT *
