@@ -3,6 +3,18 @@ SQL utilities, frequently used queries/functions
 
 # Useful SQL 
 
+## Rename Database
+```
+USE master;
+GO
+ALTER DATABASE Old_DB_Name SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+ALTER DATABASE Old_DB_Name MODIFY NAME = New_DB_Name;
+GO
+ALTER DATABASE New_DB_Name SET MULTI_USER;
+GO
+```
+
 ## Find Stored Procedure Using Specific text
 ```
 SELECT
